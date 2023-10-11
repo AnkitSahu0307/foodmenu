@@ -1,0 +1,34 @@
+{% extends "Food/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Document</title>
+    <body>
+{% block body %}
+    {% for Item in item_list %}
+        <div class="row">
+            <div class="col-md-3 offset-md-2">
+                <img class="card" height="150px" width="150px" style="margin-bottom:5px" src="{{ Item.item_image }}"/>
+            </div>
+            <div class="col-md-4">
+                <h3>{{ Item.item_name}} </h3>
+                <h5> {{ Item.item_desc}}</h5>
+                <h6>${{ Item.item_price}}</h6>
+            </div>
+            <div class="col-md-2">
+                <a href="{% url 'Food:detail' Item.id %}" class="btn btn-success">Details</a>
+               
+            </div>
+        </div>
+   
+<!-- item.id becz we want to access the ID of the item
+    this is the old code 
+<ul>
+    <li> 
+       <a href= "{% url 'Food:detail' Item.id%}"> {{ Item.id}} -- {{ Item.item_name}}
+    </li>
+</ul> -->
+    {% endfor %}
+{% endblock %}
+</body>
+</html>
