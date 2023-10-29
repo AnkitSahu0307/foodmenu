@@ -1,0 +1,24 @@
+{% extends "Food/base.html" %}
+{% block body%}
+
+<div class="conatiner">
+    <div class="row">
+        <div class="cpl-md-4 offset-md-3">
+            <div class="card">
+                <div class="card-header text-white bg-info">
+                    <div class="card-title">
+                        Add Item
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{form}}
+                        <button class="btn-info"type="submit">Save</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
